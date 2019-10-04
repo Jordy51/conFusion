@@ -81,21 +81,20 @@ const MainNavigator = createDrawerNavigator({
             drawerLabel: 'Menu'
         }
     },
-    ContactUs: {
-        screen: ContactUsNavigator,
-        navigationOptions: {
-            title: 'ContactUs',
-            drawerLabel: 'ContactUs'
-        }
-    },
     AboutUs: {
         screen: AboutUsNavigator,
         navigationOptions: {
             title: 'AboutUs',
             drawerLabel: 'AboutUs'
         }
+    },
+    ContactUs: {
+        screen: ContactUsNavigator,
+        navigationOptions: {
+            title: 'ContactUs',
+            drawerLabel: 'ContactUs'
+        }
     }
-
 }, {
     drawerBackgroundColor: '#D1C4E9'
 })
