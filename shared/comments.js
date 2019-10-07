@@ -4,7 +4,7 @@ export const COMMENTS =
             id: 0,
             dishId: 0,
             rating: 5,
-            comment: "Imagine all the eatables, living in conFusion!",
+            comment: "Bottom line is food might be OK, but integrity is seriously lacking",
             author: "John Lemon",
             date: "2012-10-16T17:57:28.556094Z"
         },
@@ -12,7 +12,7 @@ export const COMMENTS =
             id: 1,
             dishId: 0,
             rating: 4,
-            comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
+            comment: "We are delighted you enjoyed your meal at multi award winning restaurant here in Sligo serving the finest local sourced ingredients on the very edge of the beautiful Wild Atlantic Way",
             author: "Paul McVites",
             date: "2014-09-05T17:57:28.556094Z"
         },
