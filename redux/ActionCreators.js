@@ -6,6 +6,7 @@ import { baseUrl } from '../shared/baseUrl';
 
 // COMMENTS
 export const fetchComments = () => (dispatch) => {
+    console.log("-*************************************" + baseUrl)
     return fetch(baseUrl + 'comments')
         .then(response => {
             if (response.ok) {
@@ -82,14 +83,12 @@ export const addDishes = (dishes) => ({
 
 
 
-
-
 // PROMOS
 export const fetchPromos = () => (dispatch) => {
 
-    dishesLoading(promosLoading());
+    dispatch(promosLoading());
 
-    return fetch(baseUrl + 'promos')
+    return fetch(baseUrl + 'promotions')
         .then(response => {
             if (response.ok) {
                 return response;

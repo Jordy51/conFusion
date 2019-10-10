@@ -44,7 +44,8 @@ class AboutUs extends Component {
             <ScrollView>
                 <History />
                 <Card title="Corporate Leadership">
-                    <FlatList data={this.props.leaders.leaders}
+                    <FlatList
+                        data={this.props.leaders.leaders}
                         renderItem={renderLeaders}
                         keyExtractor={item => item.id.toString()}
                     />

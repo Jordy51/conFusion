@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 
 const mapStateToProps = state => {
     return {
+        promotions: state.promotions,
         leaders: state.leaders,
         dishes: state.dishes,
-        promotions: state.promotions
     }
 }
 
 
 function RenderItem(props) {
+    
     const item = props.item;
 
     if (item != null) {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Menu from './MenuComponent';
 import Home from './HomeComponent';
 import AboutUs from './AboutComponent';
@@ -190,7 +190,7 @@ const MainNavigator = createDrawerNavigator({
     contentComponent: CustomDrawerContentCompoent
 })
 
-class Main extends Component {
+class Main extends React.Component {
 
     componentDidMount() {
         this.props.fetchDishes();
