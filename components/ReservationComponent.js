@@ -96,7 +96,7 @@ class Reservation extends Component {
                         title='Reserve'
                         color='#0fbbc4'
                         onPress={() => this.handleReservation()}
-                        accessibilityLabel="Learn more about this purplr button"
+                        accessibilityLabel="Learn more about this purple button"
                     />
                 </View>
 
