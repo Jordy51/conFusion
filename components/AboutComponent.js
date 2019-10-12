@@ -52,6 +52,7 @@ class AboutUs extends Component {
                 </ScrollView>
             );
         }
+
         else if (this.props.leaders.errMess) {
             return (
                 <ScrollView>
@@ -64,6 +65,7 @@ class AboutUs extends Component {
                 </ScrollView>
             )
         }
+        
         else {
             return (
                 <ScrollView>
