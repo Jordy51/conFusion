@@ -13,6 +13,7 @@
     "react-dom": "16.8.3",
     "react-logger": "^1.1.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+    "react-native-animatable": "^1.2.4",
     "react-native-datepicker": "^1.7.2",
     "react-native-elements": "^1.0.0-beta5",
     "react-native-rating": "^2.0.4",
