@@ -1,11 +1,12 @@
 import React from 'react';
 import Menu from './MenuComponent';
 import Home from './HomeComponent';
+import Login from './LoginComponent';
 import AboutUs from './AboutComponent';
 import ContactUs from './ContactComponent';
+import Favorites from './FavoriteComponent';
 import Dishdetail from './DishdetailComponent';
 import Reservation from './ReservationComponent';
-import Favorites from './FavoriteComponent';
 import { View, Platform, Image, StyleSheet, ScrollView, Text } from 'react-native';
 import { createStackNavigator, createDrawerNavigator, DrawerItems, SafeAreaView } from 'react-navigation';
 import { Icon } from 'react-native-elements';
@@ -107,7 +108,7 @@ const ReservationNavigator = createStackNavigator({
 })
 
 const FavoritesNavigator = createStackNavigator({
-    Reservation: { screen: Favorites }
+    Favorites: { screen: Favorites }
 }, {
     navigationOptions: ({ navigation }) => ({
         headerStyle: {
@@ -140,7 +141,24 @@ const AboutUsNavigator = createStackNavigator({
             color='white'
             onPress={() => navigation.toggleDrawer()}
         />
+    })
+})
 
+const LoginNavigator = createStackNavigator({
+    Login: { screen: Login }
+}, {
+    navigationOptions: ({ navigation }) => ({
+        headerStyle: {
+            backgroundColor: '#274eab'
+        },
+        headerTintColor: '#ffe700',
+        headerTitleStyle: {
+            color: '#fff'
+        },
+        headerLeft: <Icon name='menu' size={24}
+            color='white'
+            onPress={() => navigation.toggleDrawer()}
+        />
     })
 })
 
@@ -164,6 +182,21 @@ const CustomDrawerContentCompoent = (props) => (
 
 
 const MainNavigator = createDrawerNavigator({
+    Login: {
+        screen: LoginNavigator,
+        navigationOptions: {
+            title: 'Login',
+            drawerLabel: 'Login',
+            drawerIcon: ({ tintColor, focused }) => (
+                <Icon
+                    name='sign-in'
+                    type='font-awesome'
+                    size={24}
+                    color={tintColor}
+                />
+            )
+        }
+    },
     Home: {
         screen: HomeNavigator,
         navigationOptions: {
@@ -255,6 +288,7 @@ const MainNavigator = createDrawerNavigator({
         }
     }
 }, {
+    initialRouteName: 'Home',
     drawerBackgroundColor: '#90dff6',
     contentComponent: CustomDrawerContentCompoent
 })
