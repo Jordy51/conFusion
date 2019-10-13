@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, FlatList, Modal, StyleSheet, Button, Alert, PanResponder } from 'react-native';
-import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
+import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { postFavorite, postComment } from '../redux/ActionCreators';
+import { View, Text, ScrollView, FlatList, Modal, StyleSheet, Button, Alert, PanResponder } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 
 const mapStateToProps = state => {
@@ -19,6 +19,8 @@ const mapDispatchToProps = dispatch => ({
     postComment: (dishId, author, rating, comment) => dispatch(postComment(dishId, author, rating, comment))
 });
 
+
+//RENDERDISH
 function RenderDish(props) {
     const dish = props.dish;
 
@@ -26,6 +28,15 @@ function RenderDish(props) {
 
     const recognizeDrag = ({ moveX, moveY, dx, dy }) => {
         if (dx < -200) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    const recognizeComment = ({ moveX, moveY, dx, dy }) => {
+        if (dx > 200) {
             return true;
         }
         else {
@@ -45,7 +56,7 @@ function RenderDish(props) {
             if (recognizeDrag(gestureState))
                 Alert.alert(
                     'Add to Favorites?',
-                    'Are you sure you wish to add ' + dish.name + '',
+                    'Are you sure you wish to add ' + dish.name + ' to favorite?',
                     [
                         {
                             text: 'Cancle',
@@ -58,7 +69,13 @@ function RenderDish(props) {
                     ],
                     { cancelable: false }
                 )
-            return true;
+            else if (recognizeComment(gestureState)) {
+                props.toggleModal()
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     });
 
@@ -102,6 +119,9 @@ function RenderDish(props) {
     }
 }
 
+
+
+//RENDER COMMENTS
 function RenderComments(props) {
 
     const comments = props.comments;
@@ -134,6 +154,9 @@ function RenderComments(props) {
     );
 }
 
+
+
+//DISHDETAIL
 class Dishdetail extends Component {
 
     constructor(props) {
